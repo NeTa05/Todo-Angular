@@ -1,9 +1,17 @@
 export class Task {
   title: string;
-  isReady: boolean;
+  done: boolean;
 
-  constructor(title: string, isReady?: boolean) {
+  constructor(title: string, done?: boolean) {
     this.title = title;
-    this.isReady = isReady || false;
+    this.done = done || false;
+  }
+
+  markDone() {
+    this.done = true;
+  }
+
+  markNotDone() {
+    this.done = false;
   }
 }

@@ -1,9 +1,12 @@
 <li class="ui-state-default">
   <div class="checkbox">
     <label>
-      <input type="checkbox"/> {{ task.title }}
-      <span class="glyphicon glyphicon-indent-left">
-      </span>
+      <input type="checkbox" (click)="markTaskDone()"/> {{ task.title }}
     </label>
+    <span class="pull-right" (click)="onDelete()">
+        <span class="glyphicon glyphicon-remove" (click)="onDelete()"></span>
+      </span>
   </div>
 </li>
+
+<!-- http://jsfiddle.net/mbg47ay6/ -->

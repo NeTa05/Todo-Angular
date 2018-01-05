@@ -1,7 +1,9 @@
 import { 
   Component,
   OnInit, 
-  Input 
+  Input,
+  Output,
+  EventEmitter 
 } from '@angular/core';
 
 import { Task } from './task.model';
@@ -13,8 +15,19 @@ import { Task } from './task.model';
 export class TaskComponent implements OnInit {
 
   @Input() task: Task;
+  @Output() notityDelete: EventEmitter<Task> = new EventEmitter<Task>();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onDelete() {
+    this.notityDelete.emit(this.task);
+  }
+
+  markTaskDone() {
+    this.task.markDone();
+    //this.task.markNotDone();
   }
 }
