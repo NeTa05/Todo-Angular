@@ -1,29 +1,36 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand">
-              <img src="assets/img/ngx-bootstrap.svg" class="logo">
-            </a>
-            <span class="navbar-brand">Angular + Bootstrap</span>
+
+<!-- https://bootsnipp.com/snippets/featured/todo-example -->
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="todolist not-done">
+          <h1>Todos</h1>
+            <form class="ui large form segment">
+              <input type="text" class="form-control" placeholder="Add item here..." (keyup.enter)="addTask(title)" #title>
+              <button id="checkAll" class="btn btn-success">Mark all as done</button>
+            </form>
+            <hr>
+            <ul class="list-unstyled">
+              <app-task 
+                *ngFor="let task of tasks"
+                [task]=task>
+              </app-task>
+            </ul>
+            <div class="todo-footer">
+                <strong><span class="count-todos"></span></strong> {{tasks.lenght}} Items Left
+            </div>
         </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#">
-              Link <span class="sr-only">(current)</span>
-            </a></li>
-            <li><a href="#">Link</a></li>
-            <li class="dropdown" dropdown> <!-- {1} -->
-                <a dropdownToggle role="button"> <!-- {2} -->
-                  Dropdown <span class="caret"></span></a>
-                <ul *dropdownMenu class="dropdown-menu"> <!-- {3} -->
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</nav>
+      </div>
+      <!--
+      <div class="col-md-6">
+          <div class="todolist">
+           <h1>Already Done</h1>
+              <ul id="done-items" class="list-unstyled">
+                  <li>Some item <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button></li>
+                  
+              </ul>
+          </div>
+      </div>
+      -->
+  </div>
+</div>

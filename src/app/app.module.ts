@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppBootstrapModule } from './app-bootstrap/app-bootstrap.module';
+import { AppBootstrapModule } from './modules/app-bootstrap/app-bootstrap.module';
 import { AppComponent } from './app.component';
+import { TaskComponent } from './task/task.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
