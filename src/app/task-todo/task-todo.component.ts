@@ -19,7 +19,7 @@ export class TaskComponent implements OnInit {
   @Output() notityTaskDone = new EventEmitter();
 
   constructor() { }
-
+  
   ngOnInit() {
   }
 

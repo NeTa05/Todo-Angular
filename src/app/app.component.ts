@@ -46,7 +46,7 @@ export class AppComponent {
   }
 
   markAllDone() {
-    this.tasks.forEach(task => { task.markDone() });
+    this.tasks.forEach( (task) => task.markDone() );
     this.getTasksNotDone();
   }
 
