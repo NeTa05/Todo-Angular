@@ -11,16 +11,17 @@
             <ul class="list-unstyled">
               <div 
                 *ngFor="let task of tasks">
-                <app-task 
+                <app-task-todo 
                   [task]=task 
                   (notityDelete)="onDelete($event)"
+                  (notityTaskDone)="onTaskDone()"
                   *ngIf="!task.done">
-                </app-task>
+                </app-task-todo>
               </div>
               
             </ul>
             <div class="todo-footer">
-                <strong><span class="count-todos"></span></strong> {{ tasksDone }} Items Left
+                <strong><span class="count-todos"></span></strong> {{ tasksNotDone }} Items Left
             </div>
         </div>
       </div>
@@ -28,12 +29,16 @@
       <div class="col-md-6">
           <div class="todolist">
            <h1>Already Done</h1>
-              <ul id="done-items" class="list-unstyled">
-                  <li>Some item 
-                    <span class="pull-right">
-                      <span class="glyphicon glyphicon-remove"></span>
-                    </span>
-                  </li>
+              <ul class="list-unstyled">
+                <div 
+                *ngFor="let task of tasks">
+                  <app-task-done
+                    [task]=task
+                    (notityDelete)="onDelete($event)"
+                    *ngIf="task.done" 
+                    > 
+                  </app-task-done>
+                </div>
               </ul>
           </div>
       </div>

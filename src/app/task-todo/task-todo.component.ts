@@ -8,14 +8,15 @@ import {
 
 import { Task } from './task.model';
 @Component({
-  selector: 'app-task',
-  templateUrl: './task.component.html',
-  styleUrls: ['./task.component.scss']
+  selector: 'app-task-todo',
+  templateUrl: './task-todo.component.html',
+  styleUrls: ['./task-todo.component.scss']
 })
 export class TaskComponent implements OnInit {
 
   @Input() task: Task;
   @Output() notityDelete: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output() notityTaskDone = new EventEmitter();
 
   constructor() { }
 
@@ -28,6 +29,6 @@ export class TaskComponent implements OnInit {
 
   markTaskDone() {
     this.task.markDone();
-    //this.task.markNotDone();
+    this.notityTaskDone.emit();
   }
 }

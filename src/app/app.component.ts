@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Task } from './task/task.model';
+import { Task } from './task-todo/task.model';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,6 @@ import { Task } from './task/task.model';
 export class AppComponent {
 
   tasks: Task[];
-  tasksDone: number = 0;
   tasksNotDone: number = 0;
 
   constructor() {
@@ -34,9 +33,15 @@ export class AppComponent {
     return !(title.trim() === '');
   }
 
+  //notify from child when delete 
   onDelete(task:Task): void {
     var index = this.tasks.indexOf(task);
     this.tasks.splice(index, 1);
+    this.getTasksNotDone();
+  }
+
+  //notify from child when mark task as done 
+  onTaskDone() {
     this.getTasksNotDone();
   }
 
@@ -46,10 +51,10 @@ export class AppComponent {
   }
 
   getTasksNotDone() {
-    this.tasksDone = 0;
+    this.tasksNotDone = 0;
     this.tasks.forEach(task => { 
       if (!task.done) {
-        this.tasksDone ++;
+        this.tasksNotDone ++;
       }
     });
   }

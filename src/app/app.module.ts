@@ -5,12 +5,14 @@ import { HttpModule } from '@angular/http';
 
 import { AppBootstrapModule } from './modules/app-bootstrap/app-bootstrap.module';
 import { AppComponent } from './app.component';
-import { TaskComponent } from './task/task.component';
+import { TaskComponent } from './task-todo/task-todo.component';
+import { TaskDoneComponent } from './task-done/task-done.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskComponent
+    TaskComponent,
+    TaskDoneComponent
   ],
   imports: [
     BrowserModule,
